@@ -100,7 +100,7 @@ for radar_timestamp in radar_timestamps:
     else:
         curr_row = GtPoseStamps[current_frame]
         stamp = rospy.Time.from_sec(int(curr_row[0])/1000000)
-        curr_inc = [-Decimal(curr_row[2]), -Decimal(curr_row[3]), 0, 0, 0, -Decimal(curr_row[7])]
+        curr_inc = [Decimal(curr_row[2]), Decimal(curr_row[3]), 0, 0, 0, Decimal(curr_row[7])]
 
     #stamp_ros = rospy.get_rostime()
     stamp_ros = stamp
@@ -146,7 +146,7 @@ for radar_timestamp in radar_timestamps:
 
 
     #pub_cart.publish(msg_image_cart)
-    pub_polar.publish(msg_image_polar)
+#    pub_polar.publish(msg_image_polar)
     bw.WriteImage(msg_image_polar, stamp_ros, '/Navtech/Polar')
     bw.WriteTf(tf_transform, stamp_ros)
                 #   vis = cv2.hconcat( cart_img)

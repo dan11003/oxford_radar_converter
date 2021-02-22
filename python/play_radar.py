@@ -85,9 +85,9 @@ try:
             raise FileNotFoundError("Could not find radar example: {}".format(filename))
 
         timestamps, azimuths, valid, fft_data, radar_resolution = load_radar(filename)
-        #cart_img = radar_polar_to_cartesian(azimuths, fft_data, radar_resolution, cart_resolution, cart_pixel_width,
-                                            interpolate_crossover)
-        #image=cart_img
+        cart_img = radar_polar_to_cartesian(azimuths, fft_data, radar_resolution, cart_resolution, cart_pixel_width, interpolate_crossover)
+        print(azimuths)
+        image=cart_img
 
 
         if current_frame == 0 :
